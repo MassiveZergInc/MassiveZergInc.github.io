@@ -2,14 +2,65 @@
 <html>
   <head>
     <script src="bower_components/webcomponentsjs/webcomponents-lite.min.js"></script>
+    
+    <link rel="import" href="bower_components/paper-toolbar/paper-toolbar.html">
+    <link rel="import" href="bower_components/paper-icon-button/paper-icon-button.html">
+    <link rel="import" href="bower_components/iron-icons/iron-icons.html">
+    <link rel="import" href="bower_components/paper-header-panel/paper-header-panel.html">
+    <link rel="import" href="bower_components/paper-drawer-panel/paper-drawer-panel.html">
+    <link rel="import" href="bower_components/paper-ripple/paper-ripple.html">
+    
     <link rel="import" href="elements/proto-element.html">
     <link rel="import" href="elements/dom-element.html">
     <link rel="import" href="elements/picture-frame.html">
     <link rel="import" href="elements/name-tag.html">
     <link rel="import" href="elements/configurable-name-tag.html">
     <link rel="import" href="elements/editable-name-tag.html">
+    
+    <style is="custom-style">
+      paper-ripple {
+        color: #e3e3e3;
+      }
+      
+      paper-toolbar {
+        background-color:#009688;
+      }
+      
+      /*#drawerPanel {
+        --paper-drawer-panel-left-drawer-container: {
+          background-color: #eee;
+        };
+        --paper-drawer-panel-main-container: {
+          background-color: gray;
+        };
+      }*/
+      
+    </style>
+    
   </head>
-  <body>
+  <body class="fullbleed layout vertical">
+    <paper-drawer-panel id="drawerPanel">
+      <paper-header-panel drawer>
+        <paper-toolbar></paper-toolbar>
+        <div> Drawer content... </div>
+      </paper-header-panel>
+      <paper-header-panel main><!-- class="flex"-->
+        <paper-toolbar>
+          <paper-icon-button icon="menu" on-tap="menuAction"></paper-icon-button>
+            <div title>Power Pad</div>
+          <paper-icon-button icon="refresh" on-tap="moreAction"></paper-icon-button>
+        </paper-toolbar>
+        <div>
+          content
+        </div>
+      </paper-header-panel>
+    </paper-drawer-panel>
+    
+    <!--
+    
+    
+    just testing
+    
     <proto-element></proto-element>
     
     <dom-element></dom-element>
@@ -25,5 +76,7 @@
     <configurable-name-tag owner="Scott"></configurable-name-tag>
     
     <editable-name-tag></editable-name-tag>
+    
+    -->
   </body>
 </html>
