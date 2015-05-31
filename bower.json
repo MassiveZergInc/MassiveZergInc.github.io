@@ -67,6 +67,7 @@
     "paper-tabs": "^1.0.0",
     "paper-toast": "^1.0.0",
     "iron-a11y-announcer": "^1.0.0",
-    "paper-toggle-button": "^1.0.0"
+    "paper-toggle-button": "^1.0.0",
+    "platinum-sw": "~1.0.0"
   }
 }
