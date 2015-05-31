@@ -134,19 +134,6 @@
           </paper-header-panel>
     </paper-drawer-panel>
 
-    <paper-toast id="caching-complete"
-                 duration="6000"
-                 text="Caching complete! This app will work offline.">
-    </paper-toast>
-
-<platinum-sw-register
-
- on-service-worker-installed="displayInstalledToast"
-  
-  >
-  <platinum-sw-cache></platinum-sw-cache>
-</platinum-sw-register>
-
     <!--<platinum-sw-register auto-register
                           clients-claim
                           skip-waiting
@@ -165,6 +152,18 @@
       </platinum-sw-register>-->
 
   </template>
+
+
+    <paper-toast id="caching-complete"
+                 duration="6000"
+                 text="Caching complete! This app will work offline.">
+    </paper-toast>
+
+<platinum-sw-register
+ on-service-worker-installed="displayInstalledToast"
+  >
+  <platinum-sw-cache></platinum-sw-cache>
+</platinum-sw-register>
 
   <!-- build:js scripts/app.js -->
   <script src="scripts/app.js"></script>
