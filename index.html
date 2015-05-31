@@ -152,27 +152,21 @@
       </platinum-sw-cache>
     </platinum-sw-register>
     -->
-     <!--<platinum-sw-register skip-waiting
+    
+    <paper-toast id="caching-complete"
+                 duration="6000"
+                 text="Caching complete! This app will work offline.">
+    </paper-toast>
+    
+     <platinum-sw-register skip-waiting
                             clients-claim
                             reload-on-install
                             on-service-worker-installed="displayInstalledToast">
         <platinum-sw-cache default-cache-strategy="networkFirst"
                            precache-file="precache.json"></platinum-sw-cache>
-      </platinum-sw-register>-->
+      </platinum-sw-register>
 
   </template>
-
-
-    <paper-toast id="caching-complete"
-                 duration="6000"
-                 text="Caching complete! This app will work offline.">
-    </paper-toast>
-
-<platinum-sw-register
- on-service-worker-installed="displayInstalledToast"
-  >
-  <platinum-sw-cache></platinum-sw-cache>
-</platinum-sw-register>
 
   <!-- build:js scripts/app.js -->
   <script src="scripts/app.js"></script>
