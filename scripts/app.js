@@ -21,6 +21,7 @@
         // Explicitly call the register() method. We need to wait until the template's variables are
         // all set first, since the configuration depends on bound variables.
         document.querySelector('platinum-sw-register').register();
+         console.log('Our app is ready to rock!');
       });
 
   // See https://github.com/Polymer/polymer/issues/1381
