@@ -143,7 +143,7 @@
           </paper-header-panel>
     </paper-drawer-panel>
 
-    <!--<platinum-sw-register auto-register
+    <platinum-sw-register auto-register
                           clients-claim
                           skip-waiting
                           on-service-worker-installed="displayInstalledToast">
@@ -151,20 +151,21 @@
                          precache-file="precache.json">
       </platinum-sw-cache>
     </platinum-sw-register>
-    -->
+    
+    
     
     <paper-toast id="caching-complete"
                  duration="6000"
                  text="Caching complete! This app will work offline.">
     </paper-toast>
     
-     <platinum-sw-register skip-waiting
+    <!-- <platinum-sw-register skip-waiting
                             clients-claim
                             reload-on-install
                             on-service-worker-installed="displayInstalledToast">
         <platinum-sw-cache default-cache-strategy="networkFirst"
                            precache-file="precache.json"></platinum-sw-cache>
-      </platinum-sw-register>
+      </platinum-sw-register>-->
 
   </template>
 
