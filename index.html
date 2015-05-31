@@ -54,6 +54,25 @@
       }
     </script>
   
+  <style is="custom-style">   
+
+    :host {
+      /* layout properties for the host element */
+      @apply(--layout-vertical);
+    }
+    
+    .layout {
+      /* layout properties for a local DOM element */
+      @apply(--layout-vertical);
+      @apply(--layout-center);
+    }
+    
+    .col-2{
+      @apply(--layout-flex-2);
+    }
+    
+  </style>
+  
 </head>
 
 <body unresolved class="fullbleed layout vertical">
@@ -85,7 +104,7 @@
               </a>
           </paper-menu>
       </div>
-      <paper-header-panel main mode="waterfall-tall">
+      <paper-header-panel main ><!--mode="waterfall-tall"-->
         <!-- Main Toolbar -->
         <paper-toolbar id="mainToolbar">
           <button tabindex="1" id="paperToggle" paper-drawer-toggle>
@@ -104,7 +123,7 @@
         </paper-toolbar>
 
         <!-- Main Content -->
-          <iron-pages attr-for-selected="data-route" selected="{{route}}">
+          <!--<iron-pages attr-for-selected="data-route" selected="{{route}}">
 
             <section data-route="home">
               <paper-material elevation="1">
@@ -141,7 +160,50 @@
               </paper-material>
             </section>
 
-          </iron-pages>
+          </iron-pages>-->
+          
+          
+          
+          <parallax-container>
+      
+      <parallax-group id="group1" z=2>
+        <parallax-layer>
+          <div class="title">
+              <paper-material elevation="1" class="auto-vertical flex-3 col-2">
+                <div class="layout">
+                  <h1 class="paper-font-display1"><span>The Power Pad</span></h1>
+                  <span class="paper-font-body2">Buy your Power Pad today.</span>
+                  <paper-button class="col-2" raised>Buy Now</paper-button>
+                </div>
+              </paper-material>
+          </div>
+        </parallax-layer>
+        <parallax-layer layer="-1">
+          <div class="title">
+            <img width="100%" src="https://unsplash.imgix.net/photo-1429041966141-44d228a42775?fit=crop&fm=jpg&q=75&w=1050"/>
+            <!--Background Layer-->
+          </div>
+        </parallax-layer>
+      </parallax-group>
+      
+      <parallax-group id="group2" z=3>
+        <parallax-layer>
+          <div class="title">
+            Base Layer
+          </div>
+        </parallax-layer>
+        <parallax-layer layer=1>
+          <div class="title">
+            Foreground Layer
+          </div>
+        </parallax-layer>
+      </parallax-group>
+      
+      
+      </parallax-group>
+      
+          
+          
           </paper-header-panel>
     </paper-drawer-panel>
 
