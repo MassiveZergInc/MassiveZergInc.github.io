@@ -41,7 +41,6 @@
     
     <link rel="stylesheet" href="styles/main.css">
     
-    
     <link rel="import" href="elements/app-theme.htm">
     
   </head>
@@ -107,19 +106,26 @@
               
               
               <iron-pages attr-for-selected="data-route" selected="{{route}}">
-
-            <section data-route="home">
+              <section data-route="home">
               <div class="content">
                 <div class="flex">One</div>
                 <div class="flex row">Two</div>
                 <div class="flex">Three</div>
               </div>
-              </selection>
-              </iron-pages>
-              
               <paper-material elevation="1" animated="true">
                 <card-content></card-content>
               </paper-material>
+              </selection>
+              <section data-route="users">
+              <div class="content">
+                <div class="flex">One</div>
+                <div class="flex row">three</div>
+                <div class="flex">Three</div>
+              </div>
+              </selection>
+              </iron-pages>
+              
+              
             </div>
           </paper-header-panel>
         </paper-drawer-panel>
