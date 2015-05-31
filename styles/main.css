@@ -13,8 +13,8 @@ body {
     color: #333;
 }
 #mainToolbar.has-shadow .bottom {
-        margin-left: 50px;
+       /* margin-left: 50px;*/
         padding-bottom: 0;
-        padding-left: 0;
+        padding-left: 0px !important;
         font-size: 24px;
     }
