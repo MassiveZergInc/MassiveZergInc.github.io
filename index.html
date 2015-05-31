@@ -67,6 +67,11 @@
       @apply(--layout-center);
     }
     
+    .layout-specs {
+      /* layout properties for a local DOM element */
+      @apply(--layout-vertical);
+    }
+    
     .col-2{
       @apply(--layout-flex-2);
     }
@@ -189,12 +194,26 @@
       <parallax-group id="group2" z=3>
         <parallax-layer>
           <div class="title">
-            Base Layer
+            bg
           </div>
         </parallax-layer>
         <parallax-layer layer=1>
-          <div class="title">
-            Foreground Layer
+          <div class="title-specs">
+            <paper-material elevation="1" class="auto-vertical flex-3 col-2">
+                <div class="layout-specs">
+                  <h1 class="paper-font-display1"><span>Technical Specifications</span></h1>
+                  <ul>
+                  <li><span class="paper-font-body2">10,000dpi optical sensor</span></li>
+                  <li><span class="paper-font-body2">Five independently programmable Hyperesponse buttons</span></li>
+                  <li><span class="paper-font-body2">1000Hz Ultrapolling</span></li>
+                  <li><span class="paper-font-body2">Always-on mode</span></li>
+                  <li><span class="paper-font-body2">300 inches per second*/50g acceleration</span></li>
+                  <li><span class="paper-font-body2">Seven-foot, lightweight, braided fiber cable</span></li>
+                  <li><span class="paper-font-body2">Approximate size: 127mm/5” (Length) x 70mm/2.76” (Width) x 44mm/ 1.73” (Height)</span></li>
+                  <li><span class="paper-font-body2">Approximate weight: 105g/0.23lbs</span></li>
+                  </ul>
+                </div>
+              </paper-material>
           </div>
         </parallax-layer>
       </parallax-group>
