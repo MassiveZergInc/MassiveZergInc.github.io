@@ -166,66 +166,55 @@
             </section>
 
           </iron-pages>-->
-          
-          
-          
-          <parallax-container>
-      
-      <parallax-group id="group1" z=2>
-        <parallax-layer>
-          <div class="title">
-              <paper-material elevation="1" class="auto-vertical flex-3 col-2">
-                <div class="layout">
-                  <h1 class="paper-font-display2"><span>The Power Pad</span></h1>
-                  <span class="paper-font-body2">Buy your Power Pad today.</span>
-                  <paper-button class="col-2" raised>Buy Now</paper-button>
-                </div>
-              </paper-material>
-          </div>
-        </parallax-layer>
-        <parallax-layer layer="-1">
-          <div class="title">
-            <!--<img width="100%" src="https://unsplash.imgix.net/photo-1429041966141-44d228a42775?fit=crop&fm=jpg&q=75&w=1050"/>
-            Background Layer-->
-          </div>
-        </parallax-layer>
-      </parallax-group>
-      
-      <parallax-group id="group2" z=3>
-        <parallax-layer>
-          <div class="title">
-            bg
-          </div>
-        </parallax-layer>
-        <parallax-layer layer=1>
-          <div class="title-specs">
-            <paper-material elevation="1" class="auto-vertical flex-3 col-2">
-                <div class="layout-specs">
-                  <h1 class="paper-font-display2"><span>Technical Specifications</span></h1>
-                  <ul>
-                  <li><span class="paper-font-body2">10,000dpi optical sensor</span></li>
-                  <li><span class="paper-font-body2">Five independently programmable Hyperesponse buttons</span></li>
-                  <li><span class="paper-font-body2">1000Hz Ultrapolling</span></li>
-                  <li><span class="paper-font-body2">Always-on mode</span></li>
-                  <li><span class="paper-font-body2">300 inches per second*/50g acceleration</span></li>
-                  <li><span class="paper-font-body2">Seven-foot, lightweight, braided fiber cable</span></li>
-                  <li><span class="paper-font-body2">Approximate size: 127mm/5” (Length) x 70mm/2.76” (Width) x 44mm/ 1.73” (Height)</span></li>
-                  <li><span class="paper-font-body2">Approximate weight: 105g/0.23lbs</span></li>
-                  </ul>
-                </div>
-              </paper-material>
-          </div>
-        </parallax-layer>
-      </parallax-group>
-      
-      
-      </parallax-group>
-      
-          
-          
-          </paper-header-panel>
+        <parallax-container>
+          <parallax-group id="group1" z=2>
+            <parallax-layer>
+              <div class="title">
+                <paper-material elevation="1" class="auto-vertical flex-3 col-2">
+                  <div class="layout">
+                    <h1 class="paper-font-display2"><span>The Power Pad</span></h1>
+                    <span class="paper-font-body2">Buy your Power Pad today.</span>
+                    <paper-button class="col-2" raised>Buy Now</paper-button>
+                  </div>
+                </paper-material>
+              </div>
+            </parallax-layer>
+            <parallax-layer layer="-1">
+              <div class="title">
+                <!--<img width="100%" src="https://unsplash.imgix.net/photo-1429041966141-44d228a42775?fit=crop&fm=jpg&q=75&w=1050"/>
+                Background Layer-->
+              </div>
+            </parallax-layer>
+          </parallax-group>
+          <parallax-group id="group2" z=3>
+            <parallax-layer>
+              <div class="title">
+                bg
+              </div>
+            </parallax-layer>
+            <parallax-layer layer=1>
+              <div class="title-specs">
+                <paper-material elevation="1" class="auto-vertical flex-3 col-2">
+                  <div class="layout-specs">
+                    <h1 class="paper-font-display2"><span>Technical Specifications</span></h1>
+                    <ul>
+                      <li><span class="paper-font-body2">10,000dpi optical sensor</span></li>
+                      <li><span class="paper-font-body2">Five independently programmable Hyperesponse buttons</span></li>
+                      <li><span class="paper-font-body2">1000Hz Ultrapolling</span></li>
+                      <li><span class="paper-font-body2">Always-on mode</span></li>
+                      <li><span class="paper-font-body2">300 inches per second*/50g acceleration</span></li>
+                      <li><span class="paper-font-body2">Seven-foot, lightweight, braided fiber cable</span></li>
+                      <li><span class="paper-font-body2">Approximate size: 127mm/5” (Length) x 70mm/2.76” (Width) x 44mm/ 1.73” (Height)</span></li>
+                      <li><span class="paper-font-body2">Approximate weight: 105g/0.23lbs</span></li>
+                    </ul>
+                  </div>
+                </paper-material>
+              </div>
+            </parallax-layer>
+          </parallax-group>
+        </parallax-container>
+      </paper-header-panel>
     </paper-drawer-panel>
-
     <platinum-sw-register auto-register
                           clients-claim
                           skip-waiting
@@ -234,14 +223,10 @@
                          precache-file="precache.json">
       </platinum-sw-cache>
     </platinum-sw-register>
-    
-    
-    
     <paper-toast id="caching-complete"
                  duration="6000"
                  text="Caching complete! This app will work offline.">
     </paper-toast>
-    
     <!-- <platinum-sw-register skip-waiting
                             clients-claim
                             reload-on-install
@@ -251,7 +236,6 @@
       </platinum-sw-register>-->
 
   </template>
-
   <!-- build:js scripts/app.js -->
   <script src="scripts/app.js"></script>
   <!-- endbuild-->
