@@ -1,6 +1,10 @@
 body {
     background: #fafafa;
+    /*@import url(http://fonts.googleapis.com/css?family=Roboto+Mono:400,400italic,500,500italic,700,700italic|Roboto:400,400italic,500,500italic,700,700italic);
     font-family: 'Roboto', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-family: "Roboto Mono", Roboto, sans-serif !important;*/
+    font-family: 'Roboto', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    /*font-weight: 700;*/
     color: #333;
 }
 #mainToolbar.has-shadow .bottom {
@@ -29,7 +33,7 @@ parallax-container {
     width:100%;
 }
 #group1 [layer="-1"]{
-    background: url("https://unsplash.imgix.net/photo-1429041966141-44d228a42775?fit=crop&fm=jpg&q=75&w=1050") no-repeat center center fixed; 
+    /*background: url("https://unsplash.imgix.net/photo-1429041966141-44d228a42775?fit=crop&fm=jpg&q=75&w=1050") no-repeat center center fixed; */
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -39,7 +43,7 @@ parallax-container {
     background:#607D8B;
 }
 #group3 [layer="-2"]{
-    background: url("https://ununsplash.imgix.net/reserve/8S64npOgTu2eWTZIXEfy_DSC_0955.JPG?fit=crop&fm=jpg&h=700&q=75&w=1050") no-repeat center center fixed; 
+    /*background: url("https://ununsplash.imgix.net/reserve/8S64npOgTu2eWTZIXEfy_DSC_0955.JPG?fit=crop&fm=jpg&h=700&q=75&w=1050") no-repeat center center fixed; */
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
