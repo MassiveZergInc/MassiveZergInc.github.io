@@ -1,0 +1,63 @@
+<dom-module id="drawer-items">
+    <style>
+      :host {
+        display: block;
+      }
+      paper-item{
+        position: relative;
+        height: 48px;
+        line-height: 48px;
+        color: #646464;
+        font-size: 0.9em;
+      }
+      paper-item iron-icon {
+        margin-right: 33px;
+        opacity: 0.54;
+      }
+      .iron-selected{
+        color: #009688;
+      }   
+    </style>
+  <template>
+    <paper-menu class="list" attr-for-selected="data-route" selected="{{route}}" on-iron-select="onMenuSelect">
+      <template is="dom-repeat" items="{{items}}">
+        <paper-item class="" label="{{item.name}}" tabindex="0" data-route="{{item.route}}" href="{{item.href}}">
+          <div class="label" fit>
+            <iron-icon icon="{{item.icon}}"></iron-icon>
+            <span class="paper-font-body1">{{item.name}}</span>
+          </div>
+          <ripple-wrapper></ripple-wrapper>
+        </paper-item>
+      </template>
+    </paper-menu>
+  </template>
+
+</dom-module>
+  <script>
+    (function () {
+      Polymer({
+        is: 'drawer-items',
+        properties: {
+          items: {
+            type: Array,
+            notify: true,
+          }
+        },
+        onMenuSelect: function() {
+          console.log("bla");
+        },
+        ready: function() {
+
+          this.onMenuSelect = function(){
+            console.log("bla");
+          };
+
+          function onMenuSelect() {
+            console.log("bla");
+          }
+
+
+        }
+      });
+    })();
+  </script>

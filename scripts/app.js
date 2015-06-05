@@ -31,7 +31,7 @@
 
     // Ensure the drawer is hidden on desktop/tablet
     var drawerPanel = document.querySelector('#paperDrawerPanel');
-    drawerPanel.forceNarrow = true;
+    //drawerPanel.forceNarrow = true;
   });
 
   // Close drawer after menu item is selected if drawerPanel is narrow
@@ -41,6 +41,43 @@
       drawerPanel.closeDrawer();
     }
   };
+
+  app.setajax = function() {
+    this.$.ajax.url = "http://jsonplaceholder.typicode.com/posts";
+    this.$.ajax.params = {"userId":"1"};
+    this.$.ajax.generateRequest();
+
+    //var spinner = document.querySelector('paper-spinner');
+
+    //spinner.style.display = "inner-block";
+
+    //spinner.active = true;
+
+  };
+  app.hresponse = function(request){
+
+    var responseArr = request.detail.response;
+
+    var firstObject = responseArr[0];
+
+    console.log(firstObject.userId);
+
+    var ajaxList = document.querySelector('my-list');
+
+    //ajaxList.setAttribute("items", JSON.stringify(responseArr));
+
+    ajaxList.items = responseArr;
+
+    //var spinner = document.querySelector('paper-spinner');
+
+    //spinner.active = false;
+
+    //spinner.style.display = "none";
+
+    console.log(request.detail.response);
+    console.log(this.$.ajax.lastResponse);
+  };
+
 
 })(document);
 

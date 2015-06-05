@@ -1,0 +1,141 @@
+<dom-module id="my-app">
+  <template id="app"><!-- is="dom-bind" id="app"-->
+
+    <paper-drawer-panel id="paperDrawerPanel" forceNarrow>
+      <div drawer>
+
+        <!-- Drawer Toolbar -->
+        <paper-toolbar id="drawerToolbar">
+          <span>Menu</span>
+        </paper-toolbar>
+
+          <template is="dom-repeat" items="{{items}}">
+            <paper-item label="{{item}}">{{item}}</paper-item>
+          </template>
+
+          <my-list></my-list>
+
+        <!-- Drawer Content -->
+          <paper-menu class="list" attr-for-selected="data-route" selected="{{route}}" on-iron-select="onMenuSelect">
+
+            <paper-item class="" label="Home" tabindex="0" data-route="home" href="/">
+              <div class="label" fit>
+                <iron-icon icon="home"></iron-icon>
+                Home
+              </div>
+              <paper-ripple></paper-ripple>
+            </paper-item>
+            <paper-item class="" label="Users" tabindex="0" data-route="users" href="/users">
+              <div class="label" fit>
+                <iron-icon icon="info"></iron-icon>
+                Users
+              </div>
+              <paper-ripple></paper-ripple>
+            </paper-item>
+            <paper-item class="" label="Contact" tabindex="0" data-route="contact" href="/contact">
+              <div class="label" fit>
+                <iron-icon icon="mail"></iron-icon>
+                Contact
+              </div>
+              <paper-ripple></paper-ripple>
+            </paper-item>
+          </paper-menu>
+      </div>
+      <paper-header-panel main ><!--mode="waterfall-tall"-->
+        <!-- Main Toolbar -->
+        <paper-toolbar id="mainToolbar">
+          <button tabindex="1" id="paperToggle" paper-drawer-toggle>
+            <iron-icon icon="menu" paper-drawer-toggle></iron-icon>
+          </button>
+          <span class="flex"></span>
+
+          <!-- Toolbar icons -->
+          <paper-icon-button icon="refresh"></paper-icon-button>
+          <paper-icon-button icon="search"></paper-icon-button>
+          <div class="middle"></div>
+
+          <!-- Application name -->
+          <div class="appname bottom paper-font-display2">Power Pad</div>
+
+        </paper-toolbar>
+
+        <!-- Main Content -->
+          <iron-pages attr-for-selected="data-route" selected="{{route}}">
+
+            <section data-route="home">
+              <paper-material elevation="1">
+                <my-greeting></my-greeting>
+
+                <p class="paper-font-subhead">You now have:</p>
+                <my-list></my-list>
+
+                <p class="paper-font-body2">Looking for more Web App layouts? Check out our <a href="https://github.com/PolymerElements/app-layout-templates">layouts</a> collection. You can also <a href="http://polymerelements.github.io/app-layout-templates/">preview</a> them live.</p>
+              </paper-material>
+            </section>
+
+            <section data-route="users">
+              <paper-material elevation="1">
+                <h2 class="paper-font-display2">Users</h2>
+                <p>This is the users section</p>
+                <a href="/users/Rob">Rob</a></p>
+              </paper-material>
+            </section>
+
+            <section data-route="user-info">
+              <paper-material elevation="1">
+                <h2 class="paper-font-display2">
+                User:<span>{{params.name}}</span>
+                </h2>
+                <div>This is <span>{{params.name}}</span>'s section</div>
+              </paper-material>
+            </section>
+
+            <section data-route="contact">
+              <paper-material elevation="1">
+                <h2 class="paper-font-display2">Contact</h2>
+                <p>This is the contact section</p>
+              </paper-material>
+            </section>
+
+          </iron-pages>
+      </paper-header-panel>
+    </paper-drawer-panel>
+    <platinum-sw-register auto-register
+                          clients-claim
+                          skip-waiting
+                          on-service-worker-installed="displayInstalledToast">
+      <platinum-sw-cache default-cache-strategy="networkFirst"
+                         precache-file="precache.json">
+      </platinum-sw-cache>
+    </platinum-sw-register>
+    <paper-toast id="caching-complete"
+                 duration="6000"
+                 text="Caching complete! This app will work offline.">
+    </paper-toast>
+  </template>
+  </dom-module>
+
+  <script>
+    (function () {
+      Polymer({
+        is: 'my-app',
+        properties: {
+          items: {
+            type: Array,
+            notify: true,
+          }
+        },
+        ready: function() {
+        this.items = [
+            'Responsive Web App boilerplate',
+            'Iron Elements and Paper Elements',
+            'End-to-end Build Tooling (including Vulcanize)',
+            'Unit testing with Web Component Tester',
+            'Routing with Page.js',
+            'Offline support with the Platinum Service Worker Elements'
+            ];
+        }
+      });
+    })();
+  </script>
+  <script src="../scripts/app.js"></script>
