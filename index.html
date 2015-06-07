@@ -144,6 +144,13 @@
           <!-- Toolbar icons -->
           <paper-icon-button icon="refresh"></paper-icon-button>
           <paper-icon-button icon="search"></paper-icon-button>
+
+          <paper-tabs selected="0">
+            <paper-tab>TAB 1</paper-tab>
+            <paper-tab>TAB 2</paper-tab>
+            <paper-tab>TAB 3</paper-tab>
+          </paper-tabs>
+
           <!--<paper-menu-button>
             <paper-icon-button icon="menu"></paper-icon-button>
             <paper-dropdown class="dropdown">
@@ -176,6 +183,14 @@
 
                 <iron-localstorage name="my-app-storage" value="{{value}}">
                 </iron-localstorage>
+
+                <google-signin clientId="149619621821-lb176ratl1hn67o4ki4ltk25qmp7nhqt.apps.googleusercontent.com" scopes="https://www.googleapis.com/auth/drive"></google-signin>
+
+                <button onclick="document.querySelector('#collapse1').toggle();">toggle collapse</button>
+
+                <iron-collapse id="collapse1">
+                  <div>Content goes here...</div>
+                </iron-collapse>
 
                 <p class="paper-font-subhead">You now have:</p>
 
