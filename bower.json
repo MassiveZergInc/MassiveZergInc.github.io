@@ -70,5 +70,7 @@
     "paper-toggle-button": "^1.0.0",
     "platinum-sw": "~1.0.0",
     "iron-media-query": "^1.0.0",
+    "iron-ajax": "^1.0.0",
+    "iron-localstorage": "^1.0.0"
   }
 }

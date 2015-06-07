@@ -144,10 +144,22 @@
           <!-- Toolbar icons -->
           <paper-icon-button icon="refresh"></paper-icon-button>
           <paper-icon-button icon="search"></paper-icon-button>
+          <!--<paper-menu-button>
+            <paper-icon-button icon="menu"></paper-icon-button>
+            <paper-dropdown class="dropdown">
+              <paper-menu class="menu">
+                <paper-item>No Transition</paper-item>
+                <template repeat="{{pastries}}">
+                  <paper-item>{{}}</paper-item>
+                </template>
+              </core-menu>
+            </paper-dropdown>
+          </paper-menu-button>-->
           <div class="middle"></div>
 
           <!-- Application name -->
           <div class="appname bottom paper-font-display2">everHome</div>
+
 
         </paper-toolbar>
 
@@ -157,6 +169,13 @@
             <section data-route="home">
               <paper-material elevation="1">
                 <my-greeting></my-greeting>
+
+                <p>local storage value</p>
+
+                <input value="{{value::change}}" placeholder="Enter words">
+
+                <iron-localstorage name="my-app-storage" value="{{value}}">
+                </iron-localstorage>
 
                 <p class="paper-font-subhead">You now have:</p>
 
