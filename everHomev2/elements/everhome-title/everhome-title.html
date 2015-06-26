@@ -1,0 +1,40 @@
+<dom-module id="everhome-title">
+  <link rel="import" type="css" href="../../styles/app-theme.css">
+  <style>
+    span.light{
+      font-weight: 300;
+      font-family: "LatoLight",Georgia;
+    }
+    span{
+      font-style: normal;
+    }
+    span.bold{
+      font-family: "Lato",Georgia;
+      font-weight: bold;
+    }
+    span.true{
+      font-size: 25px;
+    }
+  </style>
+  <template>
+    <span class$="{{classSpan(small)}}"><span class="color white bold">ever</span>Home</span>
+  </template>
+  <script>
+    Polymer({
+      is: "everhome-title",
+      properties:{
+        small:Boolean,
+      },
+      classSpan: function(size) {
+          return 'color white light '+size;
+      },
+      ready : function(){
+        if(typeof this.small === "undefined"){
+          this.small = false;
+        }
+      }
+    });
+
+  </script>
+
+</dom-module>

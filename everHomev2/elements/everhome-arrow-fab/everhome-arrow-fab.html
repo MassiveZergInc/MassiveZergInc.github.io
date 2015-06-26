@@ -1,0 +1,28 @@
+<dom-module id="everhome-arrow-fab">
+  <style>
+    :root {
+      --paper-fab-background:white;
+    }
+    paper-fab{
+      margin-right: 15px;
+      color:#333;
+      height: 52px;
+      width: 52px;
+    }
+    paper-fab[news="true"]{
+      margin-top: 10px;
+    }
+  </style>
+  <template>
+      <paper-fab mini icon="{{icon}}" disabled="{{disabled}}"></paper-fab>
+  </template>
+  <script>
+    Polymer({
+      is: "everhome-arrow-fab",
+      properties: {
+          icon: String,
+          disabled: Boolean
+        }
+    });
+  </script>
+</dom-module>

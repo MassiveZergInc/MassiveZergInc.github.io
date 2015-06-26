@@ -1,0 +1,459 @@
+<!doctype html>
+<html lang="">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="generator" content="everHome" />
+  <title>everHome</title>
+  <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+
+  <!-- Chrome for Android theme color -->
+  <meta name="theme-color" content="#303F9F">
+
+  <!-- Tile color for Win8 -->
+  <meta name="msapplication-TileColor" content="#3372DF">
+
+  <!-- Add to homescreen for Chrome on Android -->
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="application-name" content="Polymer Starter Kit">
+  <link rel="icon" sizes="192x192" href="images/touch/chrome-touch-icon-192x192.png">
+
+  <!-- Add to homescreen for Safari on iOS -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-title" content="Polymer Starter Kit">
+  <link rel="apple-touch-icon" href="images/touch/apple-touch-icon.png">
+
+  <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto+Mono:400,400italic,500,500italic,700,700italic|Roboto:400,400italic,500,500italic,700,700italic">
+
+  <link rel="stylesheet" type="text/css" media="screen" href="fonts/Lato-Light.css" />
+
+  <link rel="stylesheet" type="text/css" media="screen" href="fonts/Lato-Bold.css" />
+
+  <link rel="stylesheet" type="text/css" media="screen" href="fonts/Lato-LightItalic.css" />
+
+  <link rel="stylesheet" type="text/css" media="screen" href="fonts/Lato-Regular.css" />
+
+  <!-- Tile icon for Win8 (144x144) -->
+  <meta name="msapplication-TileImage" content="images/touch/ms-touch-icon-144x144-precomposed.png">
+
+  <link rel="stylesheet" href="styles/bootstrap.min.css">
+
+  <!-- build:css styles/main.css -->
+  <link rel="stylesheet" href="styles/main.css">
+  <!-- endbuild-->
+
+  <!-- build:css styles/app-theme.css -->
+  <!--<link rel="stylesheet" href="styles/app-theme.css">-->
+  <!-- endbuild-->
+
+  <!-- build:js bower_components/webcomponentsjs/webcomponents-lite.min.js -->
+  <script src="bower_components/webcomponentsjs/webcomponents-lite.min.js"></script>
+  <!-- endbuild -->
+
+  <!-- will be replaced with elements/elements.vulcanized.html -->
+  <link rel="import" href="elements/elements.html">
+  <!-- endreplace-->
+
+  <style is="custom-style">
+    .everhome-background{
+      background: url("images/axiom-pattern_black_blue.png");
+    }
+    .main-content{
+      background-image: url("images/cloud_start.png");
+      background-position: bottom;/*left top, right bottom*/
+      background-repeat: no-repeat;
+      background-size: contain;
+    }
+    .description-content{
+      background-image: url("images/cloud_end_shadow.png"),url(images/background_lamp.jpg);
+      background-position: top,left;/*left top, right bottom*/
+      background-repeat: no-repeat;
+      background-size: contain,cover;
+      padding-left: 130px;
+      padding-top: 200px;
+    }
+    .description-content-fab{
+      width: 200px;
+    }
+    .container,.main-section{
+      padding-left: 130px;
+      background-color: #5C6BC0;
+    }
+    .shadow{
+      margin: 0;
+      width: inherit;
+      border: 0;
+      -webkit-box-shadow: 0px 0px 40px 10px rgba(0,0,0,0.50);
+      -moz-box-shadow: 0px 0px 40px 10px rgba(0,0,0,0.50);
+      box-shadow: 0px 0px 40px 10px rgba(0,0,0,0.50);
+    }
+    .footer-content{
+      background-image: url(images/cloud_start_footer.png);
+      background-color: #FFFFFF;
+      background-position: top;
+      background-size: 100%;
+      background-repeat: no-repeat;
+    }
+    #footer-container{
+      margin-top: 150px;
+    }
+    .description-card{
+      width:500px;
+    }
+    #paperToggle{
+      display: none;
+    }
+
+    #navigation-tabs{
+      display: block;
+    }
+
+    .desktop-only{
+      display: block;
+    }
+    /* mobile-large */
+    @media all and (min-width: 361px) and (orientation: portrait) {
+      .main-section{
+        @apply(--layout-wrap);
+        padding-left: 20px;
+      }
+      .container,.description-content{
+        padding-left: 20px;
+      }
+    }
+
+   @media (max-width: 600px) {
+   .flex-none{
+      -webkit-flex: initial;
+      flex: initial;
+    }
+    .description-card{
+      width: calc(98.66% - 40px);
+    }
+  }
+
+  @media (max-width: 1200px) {
+   .main-section{
+      @apply(--layout-wrap);
+    }
+  }
+
+  @media (max-width: 1226px) {
+    .desktop-only{
+      display: none !important;
+    }
+  }
+/*
+
+@apply(--layout-center-justified)
+
+*/
+
+#topBar > paper-item{
+  font-size: 20px;
+  font-family: "Lato", Georgia;
+  opacity: 0.8;
+}
+
+/*Responsive Toolbar*/
+@media (max-width: 1080px) {
+  #paperToggle{
+      display: block;
+    }
+    #navigation-tabs{
+      display: none;
+    }
+
+    #topBar > paper-item{
+      opacity: 1;
+      font-weight: bold;
+    }
+  }
+
+  paper-tab.paper-tab-0 {
+    display: -ms-inline-flexbox;
+    display: -webkit-inline-flex;
+    display: inline-flex;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -ms-flex: initial;
+     -webkit-flex: initial; 
+    flex: inherit;
+    -webkit-flex-basis: initial;
+    flex-basis: inherit;
+    font-size: 20px;
+}
+#imageLeftButton{
+  margin-left: 15px;
+}
+#imageAnimation{
+  height: 400px;
+}
+  </style>
+
+</head>
+
+<body unresolved class="fullbleed layout vertical">
+  <!--<span id="browser-sync-binding"></span>-->
+  <template is="dom-bind" id="app">
+    <paper-drawer-panel id="paperDrawerPanel" forceNarrow="true">
+      <paper-header-panel drawer mode="scroll"><!--seam-->
+
+        <!-- Drawer Toolbar -->
+        <paper-toolbar id="drawerToolbar">
+          <!--<span class="paper-font-title">Menu</span>-->
+          <div class="bottom">fabian.terhorst@gmail.com</div>
+        </paper-toolbar>
+
+        <!-- Drawer Content -->
+        <paper-menu class="list" attr-for-selected="data-route" selected="{{route}}" on-iron-select="onMenuSelect">
+          <paper-item class="" label="Home" tabindex="0" data-route="home" href="#">
+              <div class="label" fit>
+                <iron-icon icon="home"></iron-icon>
+                Home
+              </div>
+              <paper-ripple></paper-ripple>
+            </paper-item>
+            <paper-item class="" label="Users" tabindex="0" data-route="users" href="/users">
+              <div class="label" fit>
+                <iron-icon icon="info"></iron-icon>
+                Users
+              </div>
+              <paper-ripple></paper-ripple>
+            </paper-item>
+            <paper-item class="" label="Contact" tabindex="0" data-route="contact" href="/contact">
+              <div class="label" fit>
+                <iron-icon icon="mail"></iron-icon>
+                Contact
+              </div>
+              <paper-ripple></paper-ripple>
+            </paper-item>
+        </paper-menu>
+      </paper-header-panel>
+      <paper-header-panel main mode="waterfall-tall">
+
+        <!-- Main Toolbar -->
+        <paper-toolbar id="mainToolbar">
+          <paper-icon-button id="paperToggle" icon="menu" paper-drawer-toggle></paper-icon-button>
+          <span class="flex"></span>
+
+          <!-- Toolbar icons -->
+          <!--<paper-icon-button id="paperToggle" icon="menu" paper-drawer-toggle></paper-icon-button>-->
+          <paper-tabs id="navigation-tabs" selected="0">
+            <paper-tab>Mein Portal</paper-tab>
+            <paper-tab>Online Shop</paper-tab>
+            <paper-tab>Sensoren und Aktoren</paper-tab>
+            <paper-tab>Forum</paper-tab>
+            <paper-tab>Hilfe</paper-tab>
+          </paper-tabs>
+          <paper-item label="Anmelden" data-route="contact" href="#">
+            <div class="label" fit>
+              Anmelden
+            </div>
+            <paper-ripple></paper-ripple>
+          </paper-item>
+          <mat-menu-button id="menuButton" hidden$="{{!menu}}" target="accountMenu"></mat-menu-button><!--icon="mdi:account"-->
+            <mat-menu id="accountMenu">
+                <mat-option label="Abmelden"></mat-option>
+            </mat-menu>
+
+
+          <!-- Application name -->
+          <div class="middle paper-font-display2 app-name"><!--<img height="150px" src="images/everhome_invers.png" alt="">--><!--<everhome-title></everhome-title>--></div>
+
+          <!-- Application sub title -->
+          <div class="bottom title flex-none" style="flex:none;-ms-flex: none;-webkit-flex: none;"><everhome-title></everhome-title></div>
+
+        </paper-toolbar>
+
+        <!-- Main Content -->
+        <div class=""><!--content-->
+          <div class="everhome-background">
+            <div class="main-content horizontal layout end-justified">
+              <img style="width: inherit;"height="500px" src="images/nexus_6.png"/>
+            </div>
+            <div class="main-section layout horizontal">
+              <div class="flex-none">
+                <everhome-test content="Machen Sie aus Ihrem Haus ein Smart Home.
+                  Testen Sie die everHome Funktionen auch ohne everHome CloudBox LAN Gateway, indem Sie sich einfach kostenlos registrieren und everHome ausprobieren."></everhome-test>
+              </div>
+              <everhome-news items='[{"title": "Digitus"},{"title": "Rohrmotor 24"},{"title": "test"},{"title": "test2"}]'></everhome-news>
+            </div>
+          </div>
+          <div class="description-content">
+            <div class="layout horizontal center wrap">
+              <div class="layout vertical description-content-fab">
+                <everhome-fab id="descriptionfab1" title="GERÄTE" icon="dns" state="active" on-click="selectDescriptionPage1"></everhome-fab>
+                <everhome-fab id="descriptionfab2" title="GRUPPEN" icon="mdi:view-column" state="inactive" on-click="selectDescriptionPage2"></everhome-fab>
+                <everhome-fab id="descriptionfab3" title="SZENEN" icon="mdi:calendar-multiple" state="inactive" on-click="selectDescriptionPage3"></everhome-fab>
+                <everhome-fab id="descriptionfab4" title="RÄUME" icon="mdi:view-quilt" state="inactive" on-click="selectDescriptionPage4"></everhome-fab>
+                <everhome-fab id="descriptionfab5" title="KARTEN" icon="mdi:map" state="inactive" on-click="selectDescriptionPage5"></everhome-fab>
+              </div>
+              <div class="layout vertical"><!--entry-animation="scale-up-animation" exit-animation="slide-up-animation"-->
+              <neon-animated-pages selected="{{selected}}" entry-animation="scale-up-animation" exit-animation="scale-down-animation" style="min-height:470px;width: 560px;">
+                <neon-animatable>
+                  <paper-material class="description-card" elevation="1">
+                    <div class="layout vertical start-justified">
+                      <h3>Lorem ipsum dolor</h3>
+                      <div class="layout horizontal center">
+                        <p class="flex-6">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
+                        </p>
+                        <everhome-device name="Kugellampe" buttons='[{"icon": "ai:on"}]' menu roomname="Wohnzimmer" class="flex-6"></everhome-device>
+                      </div>
+                    </div>
+                  </paper-material> 
+                </neon-animatable>
+                <neon-animatable>
+                 <paper-material class="description-card" elevation="1">
+                    <div class="layout vertical start-justified">
+                      <h3>Lorem ipsum dolor 2</h3>
+                      <div class="layout horizontal center">
+                        <p class="flex-6">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
+                        </p>
+                        <everhome-device menu name="Rolladen" buttons='[{"icon": "mdi:chevron-up"}, {"icon": "mdi:chevron-down"}]' class="flex-6"></everhome-device>
+                      </div>
+                    </div>
+                  </paper-material>
+                </neon-animatable>
+                <neon-animatable>
+                 <paper-material class="description-card" elevation="1">
+                    <div class="layout vertical start-justified">
+                      <h3>Lorem ipsum dolor 3</h3>
+                      <div class="layout horizontal center">
+                        <p class="flex-6">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
+                        </p>
+                        <everhome-device name="Büro" buttons='[{"icon": "ai:on"}]' menu class="flex-6"></everhome-device>
+                      </div>
+                    </div>
+                  </paper-material>
+                </neon-animatable>
+                <neon-animatable>
+                 <paper-material class="description-card" elevation="1">
+                    <div class="layout vertical start-justified">
+                      <h3>Lorem ipsum dolor 4</h3>
+                      <div class="layout horizontal center">
+                        <p class="flex-6">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
+                        </p>
+                        <everhome-device name="Wohnzimmer" class="flex-6"></everhome-device>
+                      </div>
+                    </div>
+                  </paper-material>
+                </neon-animatable>
+                <neon-animatable>
+                 <paper-material class="description-card" elevation="1">
+                    <div class="layout vertical start-justified">
+                      <h3>Lorem ipsum dolor 5</h3>
+                      <div class="layout horizontal center">
+                        <p class="flex-6">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
+                        </p>
+                        <paper-material class="flex-6" elevation="1">
+                          <h1>Karten</h1>
+                        </paper-material>
+                      </div>
+                    </div>
+                  </paper-material>
+                </neon-animatable>
+              </neon-animated-pages>
+              </div>
+            </div>
+          </div>
+          <paper-material elevation="1" class="container shadow">
+            <div class="layout horizontal wrap">
+              <everhome-test notitle content="Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet."></everhome-test>
+              <div class="layout vertical left">
+                <div class="layout horizontal end-justified center">
+                  <h1 class="light flex self-start">Das <everhome-title></everhome-title> Portal</h1>
+                  <everhome-arrow-fab id="imageLeftButton" icon="chevron-left" on-click="imageLeft" disabled></everhome-arrow-fab>
+                  <everhome-arrow-fab id="imageRightButton" icon="chevron-right" on-click="imageRight"></everhome-arrow-fab>
+                </div>   
+                <div class="flex">            
+                  <neon-animated-pages id="imageAnimation" selected="{{selectedImage}}" entry-animation="fade-in-animation" 
+                      exit-animation="fade-out-animation">
+                    <neon-animatable><img height="400px" src="images/dashboard_screenshot.png" /></neon-animatable>
+                    <neon-animatable><img height="400px" src="images/nexus_6.png" /></neon-animatable>
+                    <neon-animatable><img height="400px" src="images/dashboard_screenshot.png" /></neon-animatable>
+                    <neon-animatable><img height="400px" src="images/dashboard_screenshot.png" /></neon-animatable>
+                  </neon-animated-pages>
+                </div>
+              </div>
+            </div>
+          </paper-material>
+          <everhome-presentation-screen image="automation" title="Zeitplan nach Uhrzeit oder Sonnenauf- und Sonnenuntergang" content="Ein Zeitplan legt fest, wann der Funk-Aktor eines Gerätes, eine Gruppe oder eine Szene mit welcher Aktion geschaltet werden soll. Sie können hierbei für jeden Wochentag andere Uhrzeiten im Zeitplan hinterlegen. Sie legen in einer graphischen Bedienoberfläche fest, wann eine Lampe aus- und eingeschaltet werden soll. Oder wann eine Jalousie hoch- und heruntergefahren werden soll. Auch kann dies mehrmals täglich erfolgen. Der Zeitplan kann anhand der Uhrzeit erfolgen oder relativ zur Uhrzeit für Sonnenaufgang und Sonnenuntergang des aktuellen Tages. Lassen Sie Ihre Jalousien 30 Minuten vor Sonnenuntergang automatisch herunterfahren und die Außenbeleuchtung einschalten."></everhome-presentation-screen>
+          <paper-material elevation="1" class="container shadow">
+            <div class="layout horizontal wrap">
+              <everhome-app notitle content="Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet."></everhome-app>
+              <div class="layout vertical left">
+                <h1 class="light">Die <everhome-title></everhome-title> App</h1>
+                <div class="layout horizontal wrap">
+                  <nexus-5 items="[]"></nexus-5>
+                  <iphone-5c items="[]"></iphone-5c>
+                </div>
+              </div>
+            </div>
+          </paper-material>
+          <everhome-presentation-screen image="camera" title="Das Zuhause immer im Blick. Im everHome Portal und der everHome App. Das Bild Ihrer IP-Kamera... egal, wo Sie sich befinden" content="Schauen Sie nach dem Rechten. Ganz ohne komplizierte Router Konfiguration. everHome hat hierzu die bewährte DIGITUS Plug&View Technologie in die CloudBox integriert. Lassen Sie sich mit dem everHome Kamera-Modul das Videobild Ihrer IP Kamera in der everHome App und im everHome Portal anzeigen."></everhome-presentation-screen>
+          <paper-material elevation="1" class="container shadow">
+            <div class="layout horizontal wrap">
+              <everhome-test notitle content="Die everHome CloudBox verbindet ihre Sensoren und Aktoren in Ihrem Haus mit dem everHome Server über das Internet und das 433 MHz, 868 MHZ bzw. 2.4 GHz Funknetz in Ihrem Heim, um Ihre Geräte im everHome Portal steuern zu können. Die everHome CloudBox wird hierzu einfach über das Ethernet-Kabel mit Ihrem vorhandenen Router verbunden. So macht die everHome CloudBox alle Ihre Geräte Internet-fähig und über den everHome Server steuerbar. Und das ganz ohne komplizierte Konfiguration und Verkabelung. Auch lassen sich bei grösseren Häusern mehrere everHome CloudBox LAN Gateways einsetzen, um alle Sensoren und Aktoren zu erreichen. Auch können Sie alternativ einen WLAN Repeater mit Ethernet Port (RJ45 Anschluss) nutzen, um die CloudBox über WLAN mit Ihrem Heimnetzwerk zu verbinden." buttons='[{"title": "everHome CloudBox kaufen","icon": "mdi:cart"}]'></everhome-test>
+              <div class="layout vertical left">
+                <h1 class="light">Die <everhome-title></everhome-title> CloudBox</h1>
+                <img height="400px" src="images/cloudbox.png" />
+              </div>
+            </div>
+          </paper-material>
+          <everhome-presentation-screen image="home" title="Geofence... wenn Sie nach Hause kommen... Schalten Sie Ihre Beleuchtung ein" content="Durch die everHome App auf Ihrem Android SmartPhone erkennt everHome, wenn Sie nach Hause kommen und schaltet hinterlegte Aktionen für Aktoren. Als Ereignis für das Einschalten eines Funk-Aktors kann die Näherung an das Heim und das Entfernen vom Haus hinterlegt werden."></everhome-presentation-screen>
+          <paper-material elevation="1" class="container shadow">
+            <everhome-manufacturer items='["images/nexus_6.png","images/nexus_6.png","images/nexus_6.png","images/nexus_6.png","images/nexus_6.png","images/nexus_6.png","images/nexus_6.png","images/nexus_6.png","images/nexus_6.png","images/nexus_6.png","images/nexus_6.png","images/nexus_6.png","images/nexus_6.png","images/nexus_6.png","images/nexus_6.png","images/nexus_6.png","images/nexus_6.png","images/nexus_6.png","images/nexus_6.png","images/nexus_6.png"]'></everhome-manufacturer>
+            <div class="layout vertical center wrap">
+              <!--<div class="layout horizontal wrap">-->
+                <everhome-test class="flex self-start" toptitle="Funk-Aktoren" content="Funk-Aktoren verschiedenster Hersteller können Sie mit everHome über Ihr SmartPhone, Tablet, iPhone oder iPad weltweit manuell oder über Zeitpläne automatisiert steuern. Es werden Funk-Aktoren von Intertechno mit Hauscode/Gerätecode oder sichererem Zufallscode unterstützt. Weiter können Sie Funk-Zwischenstecker und -Einbauschalter von Brennenstuhl, Coco, Elro, HomeMatic und anderen Herstellern mit everHome verwenden. Alle Funk-Rohrmotoren und Funk-Einbauschalter Jalousie von Rohrmotor24 sind mit everHome kompatibel. Die Liste der mit everHome kompatiblen Funk-Aktoren und -Sensoren wird ständig erweitert."></everhome-test>
+                <!--<everhome-manufacturer class="flex-6" items='["images/nexus_6.png","images/nexus_6.png","images/nexus_6.png","images/nexus_6.png","images/nexus_6.png","images/nexus_6.png","images/nexus_6.png","images/nexus_6.png","images/nexus_6.png","images/nexus_6.png","images/nexus_6.png","images/nexus_6.png","images/nexus_6.png","images/nexus_6.png","images/nexus_6.png","images/nexus_6.png","images/nexus_6.png","images/nexus_6.png","images/nexus_6.png","images/nexus_6.png"]'></everhome-manufacturer>-->
+              <!--</div>-->
+              <!--<div class="layout horizontal wrap">-->
+                <!--<everhome-manufacturer class="flex-6" items='["images/nexus_6.png","images/nexus_6.png","images/nexus_6.png","images/nexus_6.png","images/nexus_6.png","images/nexus_6.png","images/nexus_6.png","images/nexus_6.png","images/nexus_6.png","images/nexus_6.png","images/nexus_6.png","images/nexus_6.png","images/nexus_6.png","images/nexus_6.png","images/nexus_6.png","images/nexus_6.png","images/nexus_6.png","images/nexus_6.png","images/nexus_6.png","images/nexus_6.png"]'></everhome-manufacturer>-->
+                <everhome-test class="flex self-end" toptitle="Funk-Sensoren" content="Die everHome SensorBox 1101 Thermometer oder das HomeMatic Wandthermometer sendet die aktuelle Temperatur des Raumes an den everHome Server in der Cloud. Diese Daten werden auf Ihren Wunsch bis zu 30 Tage gespeichert oder täglich gelöscht. Steuern Sie Ihre Fussboden-Heizung, Infrarot-Heizung oder Klimatisierung über everHome und legen Sie für jeden Wochentag und jede Zeit die gewünschte SOLL-Temperatur für Ihren Raum fest."></everhome-test>
+              <!--</div>-->
+            </div>
+          </paper-material>
+          <everhome-presentation-screen image="log" title="Das Logbuch... immer informiert sein..." content="Alle Schaltvorgänge lassen sich für alle Geräte im Logbuch nachsehen. Diese Daten werden auf Wunsch bis zu einem Monat vorgehalten oder täglich gelöscht. So behalten Sie immer den Überblick über Ihr Smart Home."></everhome-presentation-screen>
+          <div class="container shadow">
+            <div class="layout vertical wrap">
+              <div class="layout horizontal wrap">
+                <everhome-test toptitle="Besuchen Sie unseren Showroom" smalltoptitle="true" content="Lassen Sie sich alle Funktionen des everHome Portals, der everHome App und der everHome CloudBox in unserem Showroom in Coesfeld im Münsterland demonstrieren. Eine Terminvereinbarung ist erforderlich. Nutzen Sie hierzu unser Kontaktformular." buttons='[{"title": "Zum Kontaktformular","icon": "mdi:send"}]'></everhome-test>
+                <img class="desktop-only flex-none self-center" src="images/showroom.png" style="margin-left:60px;height:350px;" />
+              </div>
+              <div class="layout horizontal wrap">
+                <img class="desktop-only flex-none self-center" src="images/community.png" style="margin-right:60px;height:350px;" />
+                <everhome-test everhomestart="true" toptitle="Community und Forum" smalltoptitle="true" content="Besuchen Sie unsere everHome Google+ Community, unsere Facebook Seite und unser everHome Forum und teilen Sie uns und anderen Ihre Wünsche und Kommentare zu everHome mit." buttons='[{"title": "Zu Google+ Community","icon": "mdi:google-plus-box"},{"title": "Zur Facebook Seite","icon": "mdi:facebook-box"},{"title": "Zum everHome Forum","icon": "mdi:forum"}]'></everhome-test>
+              </div>
+            </div>
+          </div>
+          <div class="footer-content layout horizontal center-justified">
+            <div id="footer-container">
+              <paper-item label="Impressum" data-route="contact" href="/contact">
+                <div class="label" fit>
+                  <iron-icon icon="info"></iron-icon>
+                  Impressum
+                </div>
+                <paper-ripple></paper-ripple>
+              </paper-item>
+            </div>
+          </div>
+        </div>
+      </paper-header-panel>
+    </paper-drawer-panel>
+  </template>
+
+  <!-- build:js scripts/app.js -->
+  <script src="scripts/app.js"></script>
+  <!-- endbuild-->
+</body>
+
+</html>

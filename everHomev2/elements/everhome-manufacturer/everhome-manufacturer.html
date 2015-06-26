@@ -1,0 +1,35 @@
+<dom-module id="everhome-manufacturer">
+  <link rel="import" type="css" href="../../styles/devices.min.css">
+  <style>
+  div{
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 0;
+  }
+  img{
+  	width:128px;
+    height: 128px;
+  	margin-right: 15px;
+    margin-top: 20px;
+  }
+  </style>
+  <template>
+    <div class="layout horizontal wrap">
+  		<template is="dom-repeat" items="{{items}}">
+  			<img src="{{item}}"/>
+  		</template>
+  	</div>
+  </template>
+  <script>
+    Polymer({
+      is: "everhome-manufacturer",
+      	properties: {
+          items: {
+            type: Array,
+            notify: true,
+          }
+        }
+    });
+  </script>
+</dom-module>

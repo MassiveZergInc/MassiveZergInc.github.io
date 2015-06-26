@@ -1,0 +1,98 @@
+<dom-module id="everhome-device">
+	<link rel="import" href="../../styles/app-theme.html">
+	<style>
+    	paper-material{
+      		/*width:500px;*/
+      		z-index: 1;
+      		margin-right: 15px;
+      		padding: 0;
+    	}
+      iron-image{
+        width:128px;
+        height:128px;
+        margin-top: 10px;
+        /*background-color: lightgray;*/
+      }
+      .round{
+        border-radius: 100%;
+        border-style: solid;
+        border-width: 3px;
+        border-color: #333;
+        margin-top: 10px;
+      }
+      p{
+        font-family: "LatoLight",Georgia;
+        font-weight: 300;
+        margin-top: 5px;
+      }
+      h2{
+        margin-bottom: 0;
+      }
+      paper-input{
+        margin-left:16px;
+        margin-right:16px;
+      }
+      paper-icon-button{
+        margin-right: 16px;
+        border-radius: 100%;
+      }
+  </style>
+  <template>
+  	<paper-material id="card" elevation="1" class="layout vertical" on-mouseover="onHovered" on-mouseout="onUnhovered">
+      <div class="layout horizontal start-justified">
+        <paper-icon-button icon="mdi:star" class="start"></paper-icon-button>
+        <!--<paper-icon-button icon="mdi:weather-sunset" class="end"></paper-icon-button>
+        <paper-icon-button icon="mdi:calendar-clock" class="end"></paper-icon-button>
+        <paper-icon-button icon="mdi:settings" class="end"></paper-icon-button>-->
+      </div>
+      <div class="round flex self-center">
+        <iron-image sizing="contain" class="flex self-center" preload fade placeholder="data:image/gif;base64,R0lGODdhyADIAOMAAO7u/5aWlqGho9jY5OPj8cLCyqyssLe3vc3N1wAAAAAAAAAAAAAAAAAAAAAAAAAAACwAAAAAyADIAAAE/hDISau9OOvNu/9gKI5kaZ5oqq5s675wLM90bd94ru987//AoHBILBqPyKRyyWw6n9CodEqtWq/YrHbL7Xq/4LB4TC6bz+i0es1uu9/wuHxOr9vv+Lx+z+/7/4CBgoOEhYaHiImKi4yNjo+QkZKTlJWWl5iZmpucnZ6foKGio6SlpqeoqaqrrK2ur7CxsrO0tba3uLm6u7y9vr/AwcLDxMXGx8jJysvMzc7P0NHS06kB1tYqA9cUBQEFrgLWAgIqBOEBFNuu1gMs2ugT3d/rAe0r77bsFwMGAQLzEggc8AcQAIJwA+EBuKbQmgF+3iocDHBAXiZ9Fd6dAxhuo4R3/gwnGDgnkqE1BBM0XrN3CSOFgQYM+ouHEsFMAP1i2lQIAN8EhwS6kZPQ74BMnpZcTgiHkoA1AhKxAWDaU+pHqwvrVVVI1ScmpRIwYjxwTqo+r1vTafV6FmtSrRXEak0ooB+8tjzR4v251m0llwSgUnUaAOrJtFMDoESrty9XxYi/wk0sMEBMoRKo7iRK8SiFxu285vQMoIDR0qdNN+rmbxxJlRFLi7u22OG1mDjP4bYb2uFVf+r0CZ+cyOS1oRD/cUM4cN5EA3bDhszqWOHEhBLIZh+qHdnmaFABwIwm9BxLZxAtn6fGvr379/Djy59Pv779+/jz69/Pv7///wAGQyjggAQWaOCBCCao4IIMNujggxBGKOGEFFZo4YUYZqjhhhx26OGHIIYo4ogklmjiiSimqOKKLLbo4oswxijjjDRKEQEAOw==" src="../../images/licht.png" height="100px"></iron-image>
+      </div>
+      <h2 id="name" class="flex self-center">{{name}}</h3>
+      <p id="roomname" class="flex self-center">{{roomname}}</p>
+      <div class="layout horizontal">
+        <template is="dom-repeat" items="{{buttons}}">
+    		  <paper-button class="flex btn-success"><iron-icon icon="{{item.icon}}"></iron-icon></paper-button>
+        </template>
+        <mat-menu-button id="menuButton" hidden$="{{!menu}}" target="demoDefault"></mat-menu-button>
+        <!--todo:// menubutton target deviceid hinterhängen das gleiche bei demoDefault-->
+              <mat-menu id="demoDefault">
+                <div class="layout horizontal">
+                  <paper-input label="in Sekunden ein"></paper-input>
+                  <paper-icon-button class="btn-success flex self-center" icon="mdi:account"></paper-icon-button>
+                </div>
+                <!--<mat-option label="Option 1"></mat-option>-->
+              </mat-menu>
+      </div>
+  	</paper-material>
+  </template>
+  <script>
+    Polymer({
+      is: "everhome-device",
+      properties: {
+          buttons: {
+            type: Array,
+            notify: true,
+          },
+          menu : Boolean,
+          name: String,
+          roomname: String
+        },
+        onHovered: function() {
+          this.$.card.elevation = 4
+        },
+        onUnhovered: function() {
+          this.$.card.elevation = 1
+        },
+        ready: function() {
+        if(typeof this.roomname === "undefined"){
+          this.$.roomname.style.display = "none";
+          this.$.name.style.marginBottom = "16px";
+        }
+        if(typeof this.menu === "undefined"){
+          this.$.menuButton.style.display = "none";
+        }
+      }
+    });
+  </script>
+</dom-module>

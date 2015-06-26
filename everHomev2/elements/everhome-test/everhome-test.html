@@ -1,0 +1,166 @@
+<dom-module id="everhome-test">
+  <!--<link rel="import" type="css" href="../../styles/app-theme.css">-->
+  <link rel="import" href="../../styles/app-theme.html">
+  <style>
+    :host{
+      font-family: "LatoLight", Georgia;
+      z-index: 1;
+    }
+    paper-button{
+      font-family: "Lato", Georgia;
+    }
+    .main-card{
+      background-color: var(--default-primary-color);
+      width:500px;
+      z-index: 1;
+      margin-right: 15px;
+      padding: 0;
+    }
+    .main-card > h3,p{
+      padding-left: 30px;
+      padding-right: 30px;
+      padding-top:16px;
+      padding-bottom: 16px;
+    }
+    .main-card-click{
+      background-color: #FFFFFF;
+    }
+    .main-card-click > iron-icon{
+      padding: 8px;
+    }
+    .main-card-click > paper-button{
+      margin: 0;
+    }
+    .main-card-arrow{
+      float: right;
+      margin-bottom: 10px;
+    }
+    div > paper-button{
+      border-top-width: 1px;
+      border-top-color: #333;
+      border-top-style: solid;
+      border-radius: 0px;
+    }
+    div > paper-button:first-child{
+      border-top-width: 0px;
+      border-top-style: inherit;
+    }
+    h3{
+      font-style: italic;
+      font-size: 25px;
+    }
+    p{
+      font-size: 20px;
+    }
+    .main-card-button-text{
+      float: left;
+      padding-top: 3px;
+    }
+    .light{
+      font-weight: 300;
+      font-size: 48px;
+      color: #FFFFFF;
+      font-style: inherit;
+    }
+    .light.small{
+      font-weight: 300;
+      font-size: 30px;
+      color: #FFFFFF;
+      font-style: inherit;
+      margin-left: 15px;
+    }
+     @media (max-width: 600px) {
+      .main-card{
+        width: calc(98.66% - 16px);
+      }
+
+    }
+
+  </style>
+  <template>
+    <h3 id="title" class$="{{classTitle(smalltoptitle)}}">{{toptitle}}</h3>
+    <h3 id="everhometitle" class$="{{classTitle(smalltoptitle)}}"><everhome-title small></everhome-title> <span>{{toptitle}}</span></h3>
+  	<paper-material class="main-card" elevation="1">
+      <h3 id="cardtitle" class="color white">{{title}}</h3>
+	    <h3 id="cardeverhometitle" class="color white"><everhome-title small></everhome-title> - Smart Home in der Cloud</h3>
+	    <p class="color white">{{content}}</p>
+	    <div class="main-card-click layout vertical">
+        <template is="dom-repeat" items="{{buttons}}">
+          <paper-button class="flex" href="{{item.link}}"><span class="main-card-button-text">{{item.title}}</span><iron-icon class="main-card-arrow"icon="{{item.icon}}"></iron-icon></paper-button>
+        </template>
+	    </div>
+    </paper-material>
+  </template>
+  <script>
+    Polymer({
+      is: "everhome-test",
+      properties: {
+        buttons: {
+          type: Array,
+          notify:true,
+        },
+        content: {
+          type: String,
+        },
+        toptitle: {
+          type: String,
+        },
+        title: {
+          type: String,
+        },
+        smalltoptitle: {
+          type: String,
+        },
+        everhomestart: {
+          type: String,
+        },
+        notitle: Boolean
+      },
+      ready: function() {
+        if(typeof this.toptitle === "undefined"){
+          this.$.title.style.display = "none";
+        }else{
+          this.$.cardtitle.style.display = "none";
+          this.$.cardeverhometitle.style.display = "none";
+        }
+        if(typeof this.buttons === "undefined"){
+          var button = {title:"everHome testen",icon:"arrow-forward"};
+          this.buttons = new Array(button);
+        }
+        if(typeof this.title === "undefined"){
+          this.$.cardtitle.style.display = "none";
+        }else{
+          this.$.cardeverhometitle.style.display = "none";
+        }
+        if(typeof this.smalltoptitle === "undefined"){
+          this.smalltoptitle = "false";
+        }
+        if(typeof this.everhomestart === "undefined"){
+          this.$.everhometitle.style.display = "none";
+        }else{
+          this.$.title.style.display = "none";
+        }
+        if(typeof this.notitle === "undefined"){
+
+        }else{
+          this.$.cardeverhometitle.style.display = "none";
+        }
+      },
+      classTitle: function(small) {
+        if(small == "true"){
+          return 'light small';
+        }else{
+          return 'light';
+        }
+      },
+      titleHtml: function(title){
+        if(this.everhomestart == "true"){
+          return '<everhome-title small></everhome-title>' + title;
+        }else{
+          return title; 
+        }
+      }
+    });
+  </script>
+
+</dom-module>

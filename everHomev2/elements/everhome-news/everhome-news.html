@@ -1,0 +1,106 @@
+<dom-module id="everhome-news">
+  <link rel="import" type="css" href="../../styles/app-theme.css">
+  <style>
+    .news-card{
+      width: 400px;
+      margin-right: 15px;
+      z-index: 0;
+    }
+    h2{
+      margin-top: 20px;
+      margin-bottom: 10px;
+    }
+    h3{
+      font-family: "Lato",Georgia;
+      font-weight: bold;
+      font-size: 24px;
+    }
+    p{
+      font-family: "Lato", Georgia; 
+    }
+    #newsLayout{
+      transition:all 500ms cubic-bezier(0.175, 0.885, 0.320, 1);
+      -moz-transition:all 500ms cubic-bezier(0.175, 0.885, 0.320, 1);
+      -webkit-transition:all 500ms cubic-bezier(0.175, 0.885, 0.320, 1);
+      -blink-transition:all 500ms cubic-bezier(0.175, 0.885, 0.320, 1);
+    }
+    #fab-container{
+      margin-top: 10px;
+    }
+  </style>
+  <template>
+    <div class="layout vertical flex-none">
+      <div class="layout horizontal center-justified">
+        <h2 class="self-start flex light">News</h2>
+        <div id="fab-container" class="flex self-center">
+        <everhome-arrow-fab id="scrollLeftButton" on-click="scrollLeft" icon="chevron-left" disabled="true"></everhome-arrow-fab>
+        <everhome-arrow-fab id="scrollRightButton" on-click="scrollRight" icon="chevron-right"></everhome-arrow-fab>
+        </div>
+        <!--<paper-icon-button id="scrollLeftButton" on-click="scrollLeft" icon="chevron-left" class="color white" disabled></paper-icon-button>
+        <paper-icon-button id="scrollRightButton" on-click="scrollRight" icon="chevron-right" class="color white"></paper-icon-button>-->
+      </div>
+      <div id="newsLayout" class="layout horizontal"><!--wrap-->
+        <template is="dom-repeat" items="{{items}}">
+          <paper-material class="news-card flex-none" elevation="1">
+            <h3>{{item.title}}</h3>
+            <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
+          </paper-material>
+        </template>
+      </div>
+    </div>
+  </template>
+  <script>
+  var marginLeft = 0;
+  var click = 0;
+    Polymer({
+      is: "everhome-news",
+      scrollRight: function() {
+        if(click < 3){
+          var newsLayout = document.querySelector('#newsLayout');
+          var card = document.querySelectorAll('.news-card');
+          marginLeft += -card[click].offsetWidth;
+          newsLayout.style.marginLeft = marginLeft + "px"
+          click++;
+          checkScroll();
+        }
+      },
+      scrollLeft: function() {
+        var newsLayout = document.querySelector('#newsLayout');
+        if(click > 0){
+          var card = document.querySelectorAll('.news-card');
+          marginLeft += card[click].offsetWidth;
+          newsLayout.style.marginLeft = marginLeft + "px"
+          click--;
+          checkScroll();
+        }
+      },
+      properties: {
+          items: {
+            type: Array,
+            notify: true,
+          }
+        }
+    });
+
+
+    function checkScroll(){
+        console.log(click);
+        if(click == 0){
+          var scrollLeftButton = document.querySelector('#scrollLeftButton');
+          scrollLeftButton.setAttribute("disabled","true");
+        }else{
+          var scrollLeftButton = document.querySelector('#scrollLeftButton');
+          scrollLeftButton.removeAttribute("disabled");
+        }
+        if(click == 3){
+          var scrollRightButton = document.querySelector('#scrollRightButton');
+          scrollRightButton.setAttribute("disabled","true")
+        }else{
+          var scrollRightButton = document.querySelector('#scrollRightButton');
+         scrollRightButton.removeAttribute("disabled");
+        }
+      }
+
+  </script>
+
+</dom-module>

@@ -1,0 +1,75 @@
+<dom-module id="everhome-presentation-screen">
+  <style>
+    h1{
+    	margin-bottom:300px;
+    	text-shadow: 0px 1px 0px rgba(0,0,0,0.25);
+      line-height: 1;
+    }
+    p{
+    	margin-bottom:0;
+    	text-shadow: 0px 1px 15px rgb(0,0,0);
+    }
+    .content{
+      padding-left: 130px;
+      padding-right: 130px;
+      padding-bottom: 65px;
+      background-size: cover;
+      background-position: center;
+    }
+
+    .log.content > div > h1{
+      margin-bottom:200px;
+    }
+
+    @media all and (min-width: 361px) and (orientation: portrait) {
+      .content{
+        padding-left: 20px;
+        padding-right: 20px;
+        padding-bottom: 10px;
+      }
+      h1,.log.content > div > h1{
+        margin-bottom: 0;
+      }
+    }
+
+    .automation.content{
+      background-image: url(../../images/automation.jpg);
+    }
+    .camera.content{
+      background-image: url(../../images/camera.jpg);
+    }
+    .home.content{
+      background-image: url(../../images/home.jpg);
+    }
+    .log.content{
+      background-image: url(../../images/log.jpg);
+    }
+  </style>
+  <template>
+  	<div class$="{{classImage(image)}}" async>
+        <div class="layout vertical">
+            <h1 class="light flex self-center" style="">{{title}}</h1>
+           	<p style="" class="light flex self-center">{{content}}</p>
+        </div>
+    </div>
+  </template>
+  <script>
+    Polymer({
+      is: "everhome-presentation-screen",
+      properties: {
+          image: String,
+          title: {
+            type: String,
+            notify: true,
+          },
+          content: {
+            type: String,
+            notify: true,
+          }
+        },
+        classImage: function(image) {
+      		return 'content '+image;
+    	}
+    });
+  </script>
+</dom-module>

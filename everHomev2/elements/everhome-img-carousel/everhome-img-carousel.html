@@ -1,0 +1,44 @@
+<dom-module id="everhome-img-carousel">
+  <link rel="import" type="css" href="../../styles/app-theme.css">
+  <style>
+  	neon-animatable {
+    	color: white;
+        @apply(--layout-horizontal);
+        @apply(--layout-center-center);
+        @apply(--paper-font-display4);
+      }
+  </style>
+  <template>
+  	<paper-material class="main-card" elevation="1">
+  	<button on-click="_onPrevClick">&lt;&lt;</button>
+    <button on-click="_onNextClick">&gt;&gt;</button>
+  	<neon-animated-pages id="pages" class="flex" selected="{{selected}}" entry-animation="slide-from-right-animation" 
+  		exit-animation="slide-left-animation">
+	  <neon-animatable><img width="100px" height="100px" src="../../images/nexus_6.png" /></neon-animatable>
+	  <neon-animatable><img width="100px" height="100px" src="../../images/nexus_6.png" /></neon-animatable>
+	  <neon-animatable><img width="100px" height="100px" src="../../images/nexus_6.png" /></neon-animatable>
+	  <neon-animatable><img width="100px" height="100px" src="../../images/nexus_6.png" /></neon-animatable>
+	  <neon-animatable><img width="100px" height="100px" src="../../images/nexus_6.png" /></neon-animatable>
+	</neon-animated-pages>    
+    </paper-material>
+  </template>
+  <script>
+    Polymer({
+      is: "everhome-img-carousel",
+      _onPrevClick : function(){
+      	var scope = document.querySelector('#pages');
+    	scope.selected = 0;
+      	this.entryAnimation = 'slide-from-left-animation';
+      	this.exitAnimation = 'slide-right-animation';
+      	this.selected = this.selected === 0 ? 4 : (this.selected - 1);
+      },
+      _onNextClick : function(){
+      	var scope = document.querySelector('#pages');
+    	scope.selected = 0;
+      	this.entryAnimation = 'slide-from-right-animation';
+      	this.exitAnimation = 'slide-left-animation';
+      	this.selected = this.selected === 4 ? 0 : (this.selected + 1);
+      }
+    });
+  </script>
+</dom-module>

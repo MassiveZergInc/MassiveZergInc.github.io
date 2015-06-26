@@ -1,0 +1,64 @@
+<dom-module id="everhome-fab">
+  <link rel="import" type="css" href="../../styles/app-theme.css">
+  <style>
+    paper-material{
+      -webkit-transition: all 700ms cubic-bezier(0.175, 0.885, 0.320, 1);
+      transition: all 700ms cubic-bezier(0.175, 0.885, 0.320, 1);
+      -moz-transition: all 700ms cubic-bezier(0.175, 0.885, 0.320, 1);
+      -blink-transition: all 700ms cubic-bezier(0.175, 0.885, 0.320, 1);
+    }
+
+    paper-material{
+      background-color: #4e4e4e;
+      color: #FFFFFF;
+      width: 60px;
+      padding-left: 50px;
+      height: 18px;
+      margin-top: 10px;
+      margin-left: -16px;
+      padding-right: 20px;
+      padding-top: 10px;
+      padding-bottom: 10px;
+      z-index: 0;
+    }
+    /*border-radius: 12px;*/
+    paper-fab{
+    	z-index: 1;
+      background-color: var(--default-primary-color);
+    }
+    span{
+    	color:#FFFFFF;
+    	float: right;
+    }
+    paper-material.active{
+      padding-left: 70px;
+      background-color: #FFFFFF;
+      padding-right: 10px;
+      color:#4e4e4e;
+    }
+
+    paper-material.active > span{
+      color:#4e4e4e;
+    }
+  </style>
+  <template>
+    <div class="layout horizontal">
+    	<paper-fab icon="{{icon}}"></paper-fab>
+        <paper-material class$="{{state}}"><!--active-->
+        	<ripple-wrapper></ripple-wrapper>
+        	<span>{{title}}</span>
+        </paper-material>
+    </div>
+  </template>
+  <script>
+    Polymer({
+      is: "everhome-fab",
+      properties: {
+          title: String,
+          icon: String,
+          state: String
+        }
+    });
+  </script>
+
+</dom-module>

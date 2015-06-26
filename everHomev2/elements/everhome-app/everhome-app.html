@@ -1,0 +1,89 @@
+<dom-module id="everhome-app">
+  <!--<link rel="import" type="css" href="../../styles/app-theme.css">-->
+  <link rel="import" href="../../styles/app-theme.html">
+  <style>
+    :host{
+      font-family: "LatoLight", Georgia;
+    }
+    paper-button{
+      font-family: "Lato", Georgia;
+    }
+    h3{
+      font-style: italic;
+      font-size: 25px;
+    }
+    p{
+      font-size: 20px;
+    }
+    .main-card{
+      background-color: var(--default-primary-color);
+      width:500px;
+      z-index: 1;
+      margin-right: 15px;
+      padding: 0;
+    }
+    .main-card > h3,p{
+      padding-left: 30px;
+      padding-right: 30px;
+      padding-top:16px;
+      padding-bottom: 16px;
+    }
+    .main-card-click{
+      background-color: #FFFFFF;
+    }
+    .main-card-click > iron-icon{
+      padding: 8px;
+    }
+    .main-card-click > paper-button{
+      margin: 0;
+    }
+    .main-card-arrow{
+      float: right;
+      margin-bottom: 10px;
+    }
+    .main-card-button-text{
+      float: left;
+      padding-top: 3px;
+    }
+    div > paper-button:nth-child(1){
+      border-right-width: 2px;
+      border-right-color: #333;
+      border-right-style: solid;
+      border-radius: 0px;
+    }
+     @media (max-width: 600px) {
+      .main-card{
+        width: calc(98.66% - 16px);
+      }
+
+    }
+
+  </style>
+  <template>
+  	<paper-material class="main-card" elevation="1">
+	    <h3 class="color white">everHome - Smart Home in der Cloud</h3>
+	    <p class="color white">{{content}}</p>
+	    <div class="main-card-click layout horizontal">
+	        <paper-button class="flex" on-click="goLink" link="https://itunes.apple.com/de/app/id934744174"><span class="main-card-button-text">Play Store</span><iron-icon class="main-card-arrow"icon="mdi:google-play"></iron-icon></paper-button>
+	        <paper-button class="flex" on-click="goLink" link="play.google.com/store/apps/details?id=de.everhome.cloudboxprod"><span class="main-card-button-text">App Store</span><iron-icon class="main-card-arrow"icon="mdi:apple"></iron-icon></paper-button>
+	    </div>
+    </paper-material>
+  </template>
+  <script>
+    Polymer({
+      is: "everhome-app",
+      properties: {
+        content: {
+          type: String,
+        }
+      },
+      goLink: function(event) {
+        event = event || window.event;
+        var link = (event.target || event.srcElement).getAttribute('link');
+        console.log(link);
+        //window.location.href = e.target.getAttribute('link');
+      }
+    });
+  </script>
+
+</dom-module>
